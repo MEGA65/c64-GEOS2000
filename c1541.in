@@ -1,4 +1,5 @@
 attach geosboot.d81
 delete "geos kernal"
+delete "configure"
 write geoskern.puc "geos kernal"
 quit
