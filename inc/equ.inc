@@ -3,12 +3,18 @@
 ;by Maciej 'YTM/Elysium' Witkowiak
 ;19-20,30.3, 3,5,18,20.4, 4.6, 17-19.8
 
+;Ralph Egas - MEGA65 compatibility
+
 
 ;select the driver for the boot drive from the list:
 ;(only one value may be 'true')
-!set use1541		=	true
+!set use1541		=	false
 !set use1571		=	false
 !set use1581		=	false
+
+;MEGA65_BEGIN: special case to talk to F011 floppy controller
+!set usef011		=	true
+;MEGA65_END
 
 
 ;select generic input driver from the list:

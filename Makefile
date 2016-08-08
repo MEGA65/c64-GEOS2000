@@ -1,20 +1,22 @@
-#
-# Make it all go round...
-#
 # Maciej Witkowiak
+#
+# Ralph Egas - MEGA65 compatibility
 
 all:
-	@echo "Compiling system..."
+	@echo "*******************"
+	@echo "*   Assembling    *"
+	@echo "*******************"
 	acme -vv geos.tas
-	@echo "You now have geoskernal.bin file, we'll PUCrunch it..."
+	@echo "*******************"
+	@echo "*    Crunching    *"
+	@echo "*******************"
 	pucrunch -f -c64 -x0x5000 geoskern.bin geoskern.puc
-	@echo "And we'll try to make a .d64 image using c1541"
+	@echo "*******************"
+	@echo "* Writing to disk *"
+	@echo "*******************"
+	cp geosboot_vanilla_template.d81 geosboot.d81
 	c1541 <c1541.in >/dev/null
 
 clean:
-	rm geosboot.d64
+	rm geosboot.*
 	rm geoskern.*
-
-# a must!
-love:	
-	@echo "Not war, eh?"

@@ -1,3 +1,4 @@
-format geosboot,00 d64 geosboot.d64
-write geoskern.puc geoskernal.prg
+attach geosboot.d81
+delete "geos kernal"
+write geoskern.puc "geos kernal"
 quit

@@ -3,6 +3,8 @@
 ;reassembled by Maciej 'YTM/Alliance' Witkowiak
 ;4-2-99, 18-3-99
 
+;Ralph Egas - MEGA65 compatibility
+
 NULL			=	0
 FALSE			=	0
 TRUE			=	$ff
@@ -52,6 +54,11 @@ DRV_NULL		=	0
 DRV_1541		=	1
 DRV_1571		=	2
 DRV_1581		=	3
+
+;MEGA65_BEGIN: 1581 variant to talk to F011 floppy controller
+DRV_F011		=	DRV_1581 ; As far as GEOS Kernal is concerned it's just a 1581 driver
+;MEGA65_END
+
 DRV_NETWORK		=	15
 
 ;various disk

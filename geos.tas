@@ -4,9 +4,11 @@
 ;19,20-3-99; 20-4; 6-6; 17-8
 ;27.07.2000
 
+;Ralph Egas - MEGA65 compatibility
+
 ;This is makefile for GEOS KERNAL
 
-!to "geoskern.bin"
+!to "geoskern.bin", cbm
 !cpu 6502
 
 ;all GEOS Kernal equations...
@@ -40,6 +42,14 @@
 				    } else {
 					!if (use1581) {
 						!source "src/drv/drv1581.tas"
+
+						;MEGA65_BEGIN: special case to talk to F011 floppy controller
+						} else {
+						!if (usef011) {
+							!source "src/drv/drvf011.tas"
+							}
+						;MEGA65_END
+
 						}
 					}
 				}

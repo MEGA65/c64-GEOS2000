@@ -10,6 +10,8 @@
 ;21.8.2000 - fixed directory position bug (bootTr2)
 ;22.9.2000 - macros, conditionale fixes
 
+;Ralph Egas - MEGA65 compatibility
+
 		SEI
 		CLD
 		LDX #$ff
@@ -40,6 +42,14 @@
 	} else {
 	!if (use1581) {
 		LDA #DRV_1581
+
+	;MEGA65_BEGIN: special case to talk to F011 floppy controller
+	} else {
+	!if (usef011) {
+		LDA #DRV_F011
+	}
+	;MEGA65_END
+
 	}}}
 		STA _driveType,y
 		STY curDrive

@@ -1044,7 +1044,7 @@ DOSErrTab	!byte $01, $05, $02, $08	;9946
 		!byte $05, $05, $05
 
 DriveCode					;9951
-		!pseudopc DriveAddy
+		!pseudopc DriveAddy {			; MEGA65_FIXED: !pseudopc now takes compound asm
 
 DNibbleTab	!byte $0f, $07, $0d, $05	;0300
 		!byte $0b, $03, $09, $01
@@ -1519,7 +1519,8 @@ DDatas		!byte 0				;06f6
 DExecAddy	!word 0				;06f7
 e06f9		!word 0				;06f9
 
-		!realpc
+; MEGA65_FIXED: !realpc obsolete now with !pseudopc compound asm ( {} )
+};		!realpc
 
 tmpclkreg	!byte 0				;9d4c
 tmpPS 		!byte 0				;9d4d

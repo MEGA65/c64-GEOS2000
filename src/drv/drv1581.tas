@@ -102,7 +102,7 @@ SetDirHead_3	LDX #>dir3Head			;90c1
 SDH_1		STX r4H				;90c7
 		STY r4L
 		STA r1H
-		LDA #40
+		LDA #DIR_1581_TRACK		;MEGA65_FIXED
 		STA r1L
 		RTS
 
@@ -1072,7 +1072,7 @@ GetDErr2	TAX				;98c5
 		RTS
 
 DriveCode					;99c7
-		!pseudopc DriveAddy
+		!pseudopc DriveAddy {			; MEGA65_FIXED: !pseudopc now takes compound asm
 
 DNibbleTab	!byte $0f, $07, $0d, $05	;0300
 		!byte $0b, $03, $09, $01
@@ -1319,7 +1319,8 @@ E04E9		!byte 0, 0
 E04EB		=*
 E04EC		=*+1
 ;04ed
-		!realpc
+; MEGA65_FIXED: !realpc obsolete now with !pseudopc compound asm ( {} )
+};		!realpc
 ;9bb2
 ClrCacheDat	!word 0				;9bb2
 
