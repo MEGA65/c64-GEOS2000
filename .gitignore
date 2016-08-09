@@ -1,3 +1,5 @@
 /geoskern.puc
 /geoskern.bin
 /geosboot.d81
+/prototypes/sd_blockreader/blockreader.d81
+/prototypes/sd_blockreader/blockreader.bin

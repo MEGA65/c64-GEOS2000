@@ -1,0 +1,5 @@
+attach blockreader.d81
+delete "blockreader"
+write etherload.prg "autoboot.c65"
+write blockreader.bin "blockreader"
+quit
