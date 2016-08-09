@@ -9,7 +9,9 @@
 
 ; ==========================================================================================
 
-block_buffer		; c003
+		brk
+
+block_buffer		; c004
 		!fi 256, 0
 
 ; ==========================================================================================
@@ -41,9 +43,8 @@ start
 		adc #$00
 		sta $d684
 
-		; read sector
-		lda #$02
-		sta $d680
+		; do reading
+		jsr sd_readsector
 
 		; copy block to block_buffer
 		ldy #0
@@ -173,7 +174,12 @@ redoread
 		; when reading the first sector after SD card reset.  
 		ldx #$f0
 		ldy #$00
-r1		iny
+		txa
+		ldx #$00
+r1 		inx
+		bne r1
+		tax
+		iny
 		bne r1
 		inx
 		bne r1
